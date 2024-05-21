@@ -6,14 +6,14 @@
     <title>Venta de Productos</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
             background-color: #f9f9f9;
             color: #333;
             margin: 0;
             padding: 0;
         }
         header {
-            background-color: #4CAF50;
+            background-color: #000;
             color: white;
             text-align: center;
             padding: 1em 0;
@@ -38,12 +38,14 @@
         }
         .product h2 {
             margin-top: 0;
+            font-size: 24px;
         }
         .product p {
             color: #666;
+            font-size: 16px;
         }
         .contact-button {
-            background-color: #4CAF50;
+            background-color: #000;
             color: white;
             border: none;
             padding: 10px 20px;
@@ -56,7 +58,20 @@
             border-radius: 5px;
         }
         .contact-button:hover {
-            background-color: #45a049;
+            background-color: #333;
+        }
+        .carousel {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+        }
+        .carousel img {
+            flex: none;
+            width: 100%;
+            height: auto;
+            scroll-snap-align: start;
+            border-radius: 5px;
+            margin-right: 10px;
         }
     </style>
 </head>
@@ -66,7 +81,10 @@
     </header>
     <div class="container">
         <div class="product">
-            <img src="mavic_air_2_combo.jpg" alt="Mavic Air 2 Combo">
+            <div class="carousel">
+                <img src="mavic_air_2_combo.jpg" alt="Mavic Air 2 Combo 1">
+                <img src="mavic_air_2_combo.jpg" alt="Mavic Air 2 Combo 2">
+            </div>
             <h2>Mavic Air 2 Combo</h2>
             <p>Descripción: Incluye:
 -3 baterías con su cargador
@@ -85,10 +103,13 @@ Diseño plegable y ligero para mayor portabilidad y facilidad de transporte. (MU
 
 Modos de vuelo inteligentes y creativos para capturar tomas únicas.</p>
             <p>Precio: $21,000.00 MXN</p>
-            <a class="contact-button" href="https://wa.me/524442200011?text=Estoy%20interesado%20en%20el%20Mavic%20Air%202%20Combo">Contactar</a>
+            <a class="contact-button" href="https://wa.me/524442200011?text=Estoy%20interesado%20en%20el%20Mavic%20Air%202%20Combo">Contactar via WhatsApp</a>
         </div>
         <div class="product">
-            <img src="tenis_asics_metaspeed_sky.jpg" alt="Tennis ASICS METASPEED SKY">
+            <div class="carousel">
+                <img src="tenis_asics_metaspeed_sky.jpg" alt="Tennis ASICS METASPEED SKY 1">
+                <img src="tenis_asics_metaspeed_sky.jpg" alt="Tennis ASICS METASPEED SKY 2">
+            </div>
             <h2>Tennis ASICS METASPEED SKY</h2>
             <p>Descripción: Totalmente NUEVOS SIN USO.
 Uso: Competencia
@@ -99,44 +120,62 @@ Distancia: Corto , 10K , Media maratón , Maratón
 
 Equivale a los Alphafly de Nike. </p>
             <p>Precio: $5,599.00 MXN</p>
-            <a class="contact-button" href="https://wa.me/524442200011?text=Estoy%20interesado%20en%20los%20Tennis%20ASICS%20METASPEED%20SKY">Contactar</a>
+            <a class="contact-button" href="https://wa.me/524442200011?text=Estoy%20interesado%20en%20los%20Tennis%20ASICS%20METASPEED%20SKY">Contactar via WhatsApp</a>
         </div>
         <div class="product">
-            <img src="garmin_fenix_6x_sapphire.jpg" alt="Garmin Fenix 6X Sapphire">
+            <div class="carousel">
+                <img src="garmin_fenix_6x_sapphire.jpg" alt="Garmin Fenix 6X Sapphire 1">
+                <img src="garmin_fenix_6x_sapphire.jpg" alt="Garmin Fenix 6X Sapphire 2">
+            </div>
             <h2>Garmin Fenix 6X Sapphire</h2>
             <p>Precio: $12,490.00 MXN</p>
-            <a class="contact-button" href="https://wa.me/524442200011?text=Estoy%20interesado%20en%20el%20Garmin%20Fenix%206X%20Sapphire">Contactar</a>
+            <a class="contact-button" href="https://wa.me/524442200011?text=Estoy%20interesado%20en%20el%20Garmin%20Fenix%206X%20Sapphire">Contactar via WhatsApp</a>
         </div>
         <div class="product">
-            <img src="macbook_pro_2019.jpg" alt="MacBook Pro 15 inch, 2019">
+            <div class="carousel">
+                <img src="macbook_pro_2019.jpg" alt="MacBook Pro 15 inch, 2019 1">
+                <img src="macbook_pro_2019.jpg" alt="MacBook Pro 15 inch, 2019 2">
+            </div>
             <h2>MacBook Pro 15 inch, 2019</h2>
             <p>Descripción: Procesador: 2.4 GHz Intel Core i9 de ocho núcleos, Gráficos: Radeon Pro Vega 20 4 GB, Intel UHD Graphics 630 1536 MB, Memoria: 32 GB 2400 MHz DDR4</p>
             <p>Precio: $45,000.00 MXN</p>
-            <a class="contact-button" href="https://wa.me/524442200011?text=Estoy%20interesado%20en%20el%20MacBook%20Pro%2015%20inch,%202019">Contactar</a>
+            <a class="contact-button" href="https://wa.me/524442200011?text=Estoy%20interesado%20en%20el%20MacBook%20Pro%2015%20inch,%202019">Contactar via WhatsApp</a>
         </div>
         <div class="product">
-            <img src="dji_avata_combo.jpg" alt="DJI AVATA Combo">
+            <div class="carousel">
+                <img src="dji_avata_combo.jpg" alt="DJI AVATA Combo 1">
+                <img src="dji_avata_combo.jpg" alt="DJI AVATA Combo 2">
+            </div>
             <h2>DJI AVATA Combo</h2>
             <p>Precio: $21,900.00 MXN</p>
-            <a class="contact-button" href="https://wa.me/524442200011?text=Estoy%20interesado%20en%20el%20DJI%20AVATA%20Combo">Contactar</a>
+            <a class="contact-button" href="https://wa.me/524442200011?text=Estoy%20interesado%20en%20el%20DJI%20AVATA%20Combo">Contactar via WhatsApp</a>
         </div>
         <div class="product">
-            <img src="pioneer_dj_wego2_k.jpg" alt="Pioneer DJ Digital DJ WeGO2-K">
+            <div class="carousel">
+                <img src="pioneer_dj_wego2_k.jpg" alt="Pioneer DJ Digital DJ WeGO2-K 1">
+                <img src="pioneer_dj_wego2_k.jpg" alt="Pioneer DJ Digital DJ WeGO2-K 2">
+            </div>
             <h2>Pioneer DJ Digital DJ WeGO2-K</h2>
             <p>Precio: $6,000.00 MXN</p>
-            <a class="contact-button" href="https://wa.me/524442200011?text=Estoy%20interesado%20en%20el%20Pioneer%20DJ%20Digital%20DJ%20WeGO2-K">Contactar</a>
+            <a class="contact-button" href="https://wa.me/524442200011?text=Estoy%20interesado%20en%20el%20Pioneer%20DJ%20Digital%20DJ%20WeGO2-K">Contactar via WhatsApp</a>
         </div>
         <div class="product">
-            <img src="bocina_wonderboom.jpg" alt="Bocina Wonderboom">
+            <div class="carousel">
+                <img src="bocina_wonderboom.jpg" alt="Bocina Wonderboom 1">
+                <img src="bocina_wonderboom.jpg" alt="Bocina Wonderboom 2">
+            </div>
             <h2>Bocina Wonderboom</h2>
             <p>Precio: $1,500.00 MXN</p>
-            <a class="contact-button" href="https://wa.me/524442200011?text=Estoy%20interesado%20en%20la%20Bocina%20Wonderboom">Contactar</a>
+            <a class="contact-button" href="https://wa.me/524442200011?text=Estoy%20interesado%20en%20la%20Bocina%20Wonderboom">Contactar via WhatsApp</a>
         </div>
         <div class="product">
-            <img src="bocina_wonderboom.jpg" alt="Bocina Wonderboom">
+            <div class="carousel">
+                <img src="bocina_wonderboom.jpg" alt="Bocina Wonderboom 1">
+                <img src="bocina_wonderboom.jpg" alt="Bocina Wonderboom 2">
+            </div>
             <h2>Bocina Wonderboom</h2>
             <p>Precio: $1,500.00 MXN</p>
-            <a class="contact-button" href="https://wa.me/524442200011?text=Estoy%20interesado%20en%20la%20Bocina%20Wonderboom">Contactar</a>
+            <a class="contact-button" href="https://wa.me/524442200011?text=Estoy%20interesado%20en%20la%20Bocina%20Wonderboom">Contactar via WhatsApp</a>
         </div>
     </div>
 </body>
