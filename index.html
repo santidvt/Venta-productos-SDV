@@ -136,6 +136,36 @@
             border-radius: 50%;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            max-width: 500px;
+            max-height: 80%;
+            overflow-y: auto;
+        }
+        .popup h2 {
+            margin-top: 0;
+        }
+        .popup-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #000;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 50%;
+        }
     </style>
 </head>
 <body>
@@ -174,7 +204,7 @@
             </ul>
             <p><strong>Resumen:</strong> El Mavic Air 2 Combo es la herramienta perfecta para capturar imágenes y videos impresionantes desde el aire, con una increíble calidad de imagen y funciones avanzadas que facilitan su uso.</p>
             <p><strong>Precio:</strong> $21,000.00 MXN</p>
-            <a class="details-button" href="#mavic-air-2-combo-1-details">Ver más detalles</a>
+            <button class="details-button" onclick="showPopup('mavic-air-2-combo-1-details')">Ver más detalles</button>
             <a class="contact-button" href="https://wa.me/524442200011?text=Estoy%20interesado%20en%20el%20Mavic%20Air%202%20Combo">Contactar via WhatsApp</a>
         </div>
         <!-- Segundo Dron -->
@@ -204,7 +234,7 @@
             </ul>
             <p><strong>Resumen:</strong> El Mavic Air 2 Combo es la herramienta perfecta para capturar imágenes y videos impresionantes desde el aire, con una increíble calidad de imagen y funciones avanzadas que facilitan su uso.</p>
             <p><strong>Precio:</strong> $21,000.00 MXN</p>
-            <a class="details-button" href="#mavic-air-2-combo-2-details">Ver más detalles</a>
+            <button class="details-button" onclick="showPopup('mavic-air-2-combo-2-details')">Ver más detalles</button>
             <a class="contact-button" href="https://wa.me/524442200011?text=Estoy%20interesado%20en%20el%20Mavic%20Air%202%20Combo">Contactar via WhatsApp</a>
         </div>
         <!-- Tennis ASICS METASPEED SKY -->
@@ -235,7 +265,7 @@
             </ul>
             <p><strong>Resumen:</strong> Los Tennis ASICS METASPEED SKY son perfectos para corredores de alto rendimiento, ofreciendo ligereza, velocidad y una tecnología avanzada que maximiza tu desempeño en cada carrera.</p>
             <p><strong>Precio:</strong> $5,599.00 MXN</p>
-            <a class="details-button" href="#tenis-asics-metaspeed-sky-details">Ver más detalles</a>
+            <button class="details-button" onclick="showPopup('tenis-asics-metaspeed-sky-details')">Ver más detalles</button>
             <a class="contact-button" href="https://wa.me/524442200011?text=Estoy%20interesado%20en%20los%20Tennis%20ASICS%20METASPEED%20SKY">Contactar via WhatsApp</a>
         </div>
         <!-- Garmin Fenix 6X Sapphire -->
@@ -264,7 +294,7 @@
             </ul>
             <p><strong>Resumen:</strong> El Garmin Fenix 6X Sapphire es tu compañero definitivo para cualquier aventura, ofreciendo durabilidad, precisión y monitoreo avanzado para mantenerte siempre al máximo.</p>
             <p><strong>Precio:</strong> $12,490.00 MXN</p>
-            <a class="details-button" href="#garmin-fenix-6x-sapphire-details">Ver más detalles</a>
+            <button class="details-button" onclick="showPopup('garmin-fenix-6x-sapphire-details')">Ver más detalles</button>
             <a class="contact-button" href="https://wa.me/524442200011?text=Estoy%20interesado%20en%20el%20Garmin%20Fenix%206X%20Sapphire">Contactar via WhatsApp</a>
         </div>
         <!-- MacBook Pro 15 inch, 2019 -->
@@ -295,7 +325,7 @@
             </ul>
             <p><strong>Resumen:</strong> Potencia y versatilidad en tus manos. El MacBook Pro 2019 es perfecto para profesionales que necesitan un rendimiento excepcional y una experiencia de usuario premium.</p>
             <p><strong>Precio:</strong> $45,000.00 MXN</p>
-            <a class="details-button" href="#macbook-pro-15-2019-details">Ver más detalles</a>
+            <button class="details-button" onclick="showPopup('macbook-pro-15-2019-details')">Ver más detalles</button>
             <a class="contact-button" href="https://wa.me/524442200011?text=Estoy%20interesado%20en%20el%20MacBook%20Pro%2015%20inch,%202019">Contactar via WhatsApp</a>
         </div>
         <!-- DJI AVATA Combo -->
@@ -332,7 +362,7 @@
             </ul>
             <p><strong>Resumen:</strong> Explora el cielo con el DJI AVATA Combo, ideal para capturar videos increíbles y vivir una experiencia de vuelo inmersiva, tanto para principiantes como expertos.</p>
             <p><strong>Precio:</strong> $21,900.00 MXN</p>
-            <a class="details-button" href="#dji-avata-combo-details">Ver más detalles</a>
+            <button class="details-button" onclick="showPopup('dji-avata-combo-details')">Ver más detalles</button>
             <a class="contact-button" href="https://wa.me/524442200011?text=Estoy%20interesado%20en%20el%20DJI%20AVATA%20Combo">Contactar via WhatsApp</a>
         </div>
         <!-- Pioneer DJ Digital DJ WeGO2-K -->
@@ -360,7 +390,7 @@
             </ul>
             <p><strong>Resumen:</strong> Lleva tus habilidades de DJ al siguiente nivel con el Pioneer DJ WeGO2-K, un controlador compacto y versátil que te permitirá mezclar música en cualquier lugar.</p>
             <p><strong>Precio:</strong> $6,000.00 MXN</p>
-            <a class="details-button" href="#pioneer-dj-wego2k-details">Ver más detalles</a>
+            <button class="details-button" onclick="showPopup('pioneer-dj-wego2k-details')">Ver más detalles</button>
             <a class="contact-button" href="https://wa.me/524442200011?text=Estoy%20interesado%20en%20el%20Pioneer%20DJ%20Digital%20DJ%20WeGO2-K">Contactar via WhatsApp</a>
         </div>
         <!-- Bocina Wonderboom -->
@@ -390,11 +420,15 @@
             </ul>
             <p><strong>Resumen:</strong> La bocina Wonderboom ofrece un sonido increíblemente potente y resistente al agua, perfecta para cualquier aventura al aire libre o reunión en casa.</p>
             <p><strong>Precio:</strong> $1,500.00 MXN</p>
-            <a class="details-button" href="#bocina-wonderboom-details">Ver más detalles</a>
+            <button class="details-button" onclick="showPopup('bocina-wonderboom-details')">Ver más detalles</button>
             <a class="contact-button" href="https://wa.me/524442200011?text=Estoy%20interesado%20en%20la%20Bocina%20Wonderboom">Contactar via WhatsApp</a>
         </div>
     </div>
     <a class="fixed-contact-button" href="https://wa.me/524442200011">📱</a>
+    <div class="popup" id="popup">
+        <button class="popup-close" onclick="closePopup()">×</button>
+        <div id="popup-content"></div>
+    </div>
     <script>
         function prevSlide(button) {
             const carousel = button.nextElementSibling;
@@ -426,6 +460,137 @@
             Array.from(indicators).forEach(indicator => indicator.classList.remove('active'));
             indicators[activeIndex].classList.add('active');
         }
+
+        function showPopup(detailsId) {
+            const details = {
+                'mavic-air-2-combo-1-details': `
+                    <h2>Mavic Air 2 Combo (Dron 1)</h2>
+                    <p><strong>Descripción:</strong></p>
+                    <ul>
+                        <li><strong>Baterías:</strong> 3 baterías con su cargador</li>
+                        <li><strong>Accesorios:</strong> Filtros para fotografías, mochila y control</li>
+                        <li><strong>Cámara:</strong> 48MP para imágenes de alta calidad</li>
+                        <li><strong>Video:</strong> 4K con detalles increíbles</li>
+                        <li><strong>Distancia de Vuelo:</strong> Hasta 18.5 km</li>
+                        <li><strong>Tiempo de Vuelo:</strong> Aproximadamente 34 minutos por batería</li>
+                        <li><strong>Seguridad:</strong> Sensores para evitar obstáculos y accidentes</li>
+                        <li><strong>Diseño:</strong> Plegable y ligero para mayor portabilidad y facilidad de transporte</li>
+                        <li><strong>Modos de Vuelo:</strong> Inteligentes y creativos para capturar tomas únicas</li>
+                    </ul>
+                    <p><strong>Resumen:</strong> El Mavic Air 2 Combo es la herramienta perfecta para capturar imágenes y videos impresionantes desde el aire, con una increíble calidad de imagen y funciones avanzadas que facilitan su uso.</p>
+                    <p><strong>Precio:</strong> $21,000.00 MXN</p>
+                `,
+                'mavic-air-2-combo-2-details': `
+                    <h2>Mavic Air 2 Combo (Dron 2)</h2>
+                    <p><strong>Descripción:</strong></p>
+                    <ul>
+                        <li><strong>Baterías:</strong> 3 baterías con su cargador</li>
+                        <li><strong>Accesorios:</strong> Filtros para fotografías, mochila y control</li>
+                        <li><strong>Cámara:</strong> 48MP para imágenes de alta calidad</li>
+                        <li><strong>Video:</strong> 4K con detalles increíbles</li>
+                        <li><strong>Distancia de Vuelo:</strong> Hasta 18.5 km</li>
+                        <li><strong>Tiempo de Vuelo:</strong> Aproximadamente 34 minutos por batería</li>
+                        <li><strong>Seguridad:</strong> Sensores para evitar obstáculos y accidentes</li>
+                        <li><strong>Diseño:</strong> Plegable y ligero para mayor portabilidad y facilidad de transporte</li>
+                        <li><strong>Modos de Vuelo:</strong> Inteligentes y creativos para capturar tomas únicas</li>
+                    </ul>
+                    <p><strong>Resumen:</strong> El Mavic Air 2 Combo es la herramienta perfecta para capturar imágenes y videos impresionantes desde el aire, con una increíble calidad de imagen y funciones avanzadas que facilitan su uso.</p>
+                    <p><strong>Precio:</strong> $21,000.00 MXN</p>
+                `,
+                'tenis-asics-metaspeed-sky-details': `
+                    <h2>Tennis ASICS METASPEED SKY</h2>
+                    <p><strong>Descripción:</strong></p>
+                    <ul>
+                        <li><strong>Uso:</strong> Competencia</li>
+                        <li><strong>Peso:</strong> 200g (ultraligeros)</li>
+                        <li><strong>Ritmo:</strong> Alto</li>
+                        <li><strong>Tecnología:</strong> Placa de fibra de carbono (carbon-plate) para mayor impulso</li>
+                        <li><strong>Distancia:</strong> Ideales para 10K, media maratón y maratón</li>
+                        <li><strong>Comparación:</strong> Equivalen a los Alphafly de Nike</li>
+                    </ul>
+                    <p><strong>Resumen:</strong> Los Tennis ASICS METASPEED SKY son perfectos para corredores de alto rendimiento, ofreciendo ligereza, velocidad y una tecnología avanzada que maximiza tu desempeño en cada carrera.</p>
+                    <p><strong>Precio:</strong> $5,599.00 MXN</p>
+                `,
+                'garmin-fenix-6x-sapphire-details': `
+                    <h2>Garmin Fenix 6X Sapphire</h2>
+                    <p><strong>Descripción:</strong></p>
+                    <ul>
+                        <li><strong>Pantalla:</strong> Resistente a los arañazos con cristal de zafiro</li>
+                        <li><strong>Mapas:</strong> TopoActive y rutas de esquí integradas</li>
+                        <li><strong>Sensores:</strong> Avanzados de frecuencia cardíaca y Pulse Ox</li>
+                        <li><strong>Navegación:</strong> GPS, GLONASS y Galileo</li>
+                        <li><strong>Monitoreo:</strong> Energía Body Battery para gestionar tus reservas de energía</li>
+                        <li><strong>Batería:</strong> Hasta 21 días en modo smartwatch</li>
+                    </ul>
+                    <p><strong>Resumen:</strong> El Garmin Fenix 6X Sapphire es tu compañero definitivo para cualquier aventura, ofreciendo durabilidad, precisión y monitoreo avanzado para mantenerte siempre al máximo.</p>
+                    <p><strong>Precio:</strong> $12,490.00 MXN</p>
+                `,
+                'macbook-pro-15-2019-details': `
+                    <h2>MacBook Pro 15 inch, 2019</h2>
+                    <p><strong>Descripción:</strong></p>
+                    <ul>
+                        <li><strong>Procesador:</strong> Intel Core i9 de ocho núcleos a 2.4 GHz</li>
+                        <li><strong>Gráficos:</strong> Radeon Pro Vega 20 4 GB e Intel UHD Graphics 630 1536 MB</li>
+                        <li><strong>Memoria:</strong> 32 GB de RAM DDR4 a 2400 MHz</li>
+                        <li><strong>Almacenamiento:</strong> SSD de 1 TB</li>
+                        <li><strong>Pantalla:</strong> Retina de 15 pulgadas con tecnología True Tone</li>
+                        <li><strong>Funciones Adicionales:</strong> Touch Bar y Touch ID</li>
+                        <li><strong>Puertos:</strong> Cuatro Thunderbolt 3 (USB-C)</li>
+                        <li><strong>Sistema Operativo:</strong> macOS</li>
+                    </ul>
+                    <p><strong>Resumen:</strong> Potencia y versatilidad en tus manos. El MacBook Pro 2019 es perfecto para profesionales que necesitan un rendimiento excepcional y una experiencia de usuario premium.</p>
+                    <p><strong>Precio:</strong> $45,000.00 MXN</p>
+                `,
+                'dji-avata-combo-details': `
+                    <h2>DJI AVATA Combo</h2>
+                    <p><strong>Descripción:</strong></p>
+                    <ul>
+                        <li><strong>Cámara:</strong> 4K con estabilización RockSteady</li>
+                        <li><strong>Tiempo de Vuelo:</strong> Aproximadamente 20 minutos</li>
+                        <li><strong>Diseño:</strong> Compacto y resistente</li>
+                        <li><strong>Modos de Vuelo:</strong> Manual y estabilizado</li>
+                        <li><strong>Transmisión:</strong> OcuSync 3.0</li>
+                        <li><strong>Incluye:</strong> Controlador de movimiento y gafas FPV</li>
+                    </ul>
+                    <p><strong>Resumen:</strong> Explora el cielo con el DJI AVATA Combo, ideal para capturar videos increíbles y vivir una experiencia de vuelo inmersiva, tanto para principiantes como expertos.</p>
+                    <p><strong>Precio:</strong> $21,900.00 MXN</p>
+                `,
+                'pioneer-dj-wego2k-details': `
+                    <h2>Pioneer DJ Digital DJ WeGO2-K</h2>
+                    <p><strong>Descripción:</strong></p>
+                    <ul>
+                        <li><strong>Compatibilidad:</strong> iPhone, iPad, PC/Mac</li>
+                        <li><strong>Jog Wheels:</strong> Iluminadas con múltiples efectos</li>
+                        <li><strong>Interfaz de Audio:</strong> Integrada con salida para auriculares</li>
+                        <li><strong>Alimentación:</strong> USB, sin necesidad de adaptador de corriente</li>
+                        <li><strong>Software Incluido:</strong> Virtual DJ LE</li>
+                    </ul>
+                    <p><strong>Resumen:</strong> Lleva tus habilidades de DJ al siguiente nivel con el Pioneer DJ WeGO2-K, un controlador compacto y versátil que te permitirá mezclar música en cualquier lugar.</p>
+                    <p><strong>Precio:</strong> $6,000.00 MXN</p>
+                `,
+                'bocina-wonderboom-details': `
+                    <h2>Bocina Wonderboom</h2>
+                    <p><strong>Descripción:</strong></p>
+                    <ul>
+                        <li><strong>Sonido:</strong> Potente de 360 grados con bajos profundos</li>
+                        <li><strong>Resistencia:</strong> Al agua (IPX7) y flotante</li>
+                        <li><strong>Batería:</strong> Hasta 10 horas de duración</li>
+                        <li><strong>Emparejamiento:</strong> Con otros altavoces Wonderboom para sonido estéreo</li>
+                        <li><strong>Alcance:</strong> Inalámbrico de hasta 30 metros</li>
+                    </ul>
+                    <p><strong>Resumen:</strong> La bocina Wonderboom ofrece un sonido increíblemente potente y resistente al agua, perfecta para cualquier aventura al aire libre o reunión en casa.</p>
+                    <p><strong>Precio:</strong> $1,500.00 MXN</p>
+                `
+            };
+
+            document.getElementById('popup-content').innerHTML = details[detailsId];
+            document.getElementById('popup').style.display = 'block';
+        }
+
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+        }
     </script>
 </body>
 </html>
+
