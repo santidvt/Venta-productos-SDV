@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Venta de Productos</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Roboto', sans-serif;
             background-color: #f9f9f9;
             color: #333;
             margin: 0;
@@ -20,7 +21,7 @@
         }
         .container {
             max-width: 800px;
-            margin: 0 auto;
+            margin: 20px auto;
             padding: 20px;
         }
         .product {
@@ -36,20 +37,26 @@
             max-width: 100%;
             height: auto;
             border-radius: 5px;
+            margin-bottom: 10px;
         }
         .product h2 {
             margin-top: 0;
             font-size: 24px;
         }
-        .product p {
+        .product p, .product ul {
+            text-align: left;
+            padding-left: 20px;
             color: #666;
             font-size: 16px;
         }
         .product ul {
-            text-align: left;
-            padding-left: 20px;
+            list-style-type: none;
+            padding: 0;
         }
-        .contact-button {
+        .product ul li {
+            margin-bottom: 5px;
+        }
+        .contact-button, .details-button {
             background-color: #000;
             color: white;
             border: none;
@@ -58,11 +65,11 @@
             text-decoration: none;
             display: inline-block;
             font-size: 16px;
-            margin: 10px 0;
+            margin: 10px 5px;
             cursor: pointer;
             border-radius: 5px;
         }
-        .contact-button:hover {
+        .contact-button:hover, .details-button:hover {
             background-color: #333;
         }
         .carousel {
@@ -128,22 +135,6 @@
             cursor: pointer;
             border-radius: 50%;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-        .details-button {
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 10px 0;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-        .details-button:hover {
-            background-color: #0056b3;
         }
     </style>
 </head>
@@ -403,7 +394,7 @@
             <a class="contact-button" href="https://wa.me/524442200011?text=Estoy%20interesado%20en%20la%20Bocina%20Wonderboom">Contactar via WhatsApp</a>
         </div>
     </div>
-    <a class="fixed-contact-button" href="https://wa.me/524442200011">📞</a>
+    <a class="fixed-contact-button" href="https://wa.me/524442200011">📱</a>
     <script>
         function prevSlide(button) {
             const carousel = button.nextElementSibling;
