@@ -4,121 +4,72 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Venta de Productos</title>
+    <!-- Metaetiquetas para vista previa en WhatsApp y otras redes sociales -->
+    <meta property="og:title" content="Venta de Productos">
+    <meta property="og:description" content="Productos en venta: drones, tenis, relojes inteligentes, iPhones, MacBooks, y más.">
+    <meta property="og:image" content="https://santidvt.github.io/Venta-productos-SDV/image-url.jpg">
+    <meta property="og:url" content="https://santidvt.github.io/Venta-productos-SDV/">
+    <meta name="twitter:card" content="summary_large_image">
+
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+        /* Estilos CSS */
         body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #f9f9f9;
-            color: #333;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
             margin: 0;
             padding: 0;
         }
-        header {
-            background-color: #000;
-            color: white;
-            text-align: center;
-            padding: 1em 0;
-        }
         .container {
-            max-width: 800px;
+            width: 80%;
             margin: 20px auto;
+            background-color: #fff;
             padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1, h2 {
+            text-align: center;
         }
         .product {
-            background-color: white;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            padding: 20px;
-            margin-bottom: 20px;
-            text-align: center;
-            position: relative;
-        }
-        .product img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 5px;
-            margin-bottom: 10px;
-        }
-        .product h2 {
-            margin-top: 0;
-            font-size: 24px;
-        }
-        .product p, .product ul {
-            text-align: left;
-            padding-left: 20px;
-            color: #666;
-            font-size: 16px;
-        }
-        .product ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        .product ul li {
-            margin-bottom: 5px;
-        }
-        .contact-button, .details-button {
-            background-color: #000;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 10px 5px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-        .contact-button:hover, .details-button:hover {
-            background-color: #333;
+            margin-bottom: 40px;
         }
         .carousel {
             display: flex;
-            overflow-x: hidden;
+            overflow-x: auto;
             scroll-snap-type: x mandatory;
-            position: relative;
+            gap: 10px;
         }
         .carousel img {
-            flex: none;
             width: 100%;
             height: auto;
-            scroll-snap-align: start;
-            border-radius: 5px;
-            transition: transform 0.5s ease;
+            scroll-snap-align: center;
+            border-radius: 8px;
         }
-        .carousel-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            font-size: 24px;
-            z-index: 1;
-        }
-        .carousel-nav.left {
-            left: 10px;
-        }
-        .carousel-nav.right {
-            right: 10px;
-        }
-        .carousel-indicators {
-            text-align: center;
+        .carousel-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
             margin-top: 10px;
         }
-        .carousel-indicators span {
-            display: inline-block;
-            width: 10px;
-            height: 10px;
-            background-color: #ddd;
-            border-radius: 50%;
-            margin: 0 5px;
+        .carousel-buttons span {
             cursor: pointer;
+            padding: 5px;
+            background-color: #000;
+            color: #fff;
+            border-radius: 50%;
         }
-        .carousel-indicators .active {
-            background-color: #333;
+        .details-button, .contact-button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            text-align: center;
+            margin: 10px 0;
+            color: #fff;
+            background-color: #000;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
         }
         .fixed-contact-button {
             position: fixed;
@@ -126,15 +77,10 @@
             right: 20px;
             background-color: #25D366;
             color: white;
-            border: none;
             padding: 15px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 20px;
-            cursor: pointer;
             border-radius: 50%;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+            font-size: 24px;
         }
         .popup {
             display: none;
@@ -142,54 +88,44 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background-color: white;
+            width: 80%;
+            max-width: 600px;
+            background-color: #fff;
             padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
             z-index: 1000;
-            max-width: 500px;
-            max-height: 80%;
-            overflow-y: auto;
-        }
-        .popup h2 {
-            margin-top: 0;
         }
         .popup-close {
             position: absolute;
             top: 10px;
             right: 10px;
-            background-color: #000;
-            color: white;
+            background: none;
             border: none;
-            padding: 5px 10px;
+            font-size: 24px;
             cursor: pointer;
-            border-radius: 50%;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Venta de Productos</h1>
-    </header>
     <div class="container">
-        <!-- Primer Dron -->
+        <h1>Venta de Productos</h1>
+        
+        <!-- Producto: Mavic Air 2 Combo (Dron 1 y 2) -->
         <div class="product">
-            <button class="carousel-nav left" onclick="prevSlide(this)">&#10094;</button>
             <div class="carousel">
                 <img src="mavic_air_2_combo.jpg" alt="Mavic Air 2 Combo">
+                <img src="mavic_air_2_combo2.jpg" alt="Mavic Air 2 Combo">
                 <img src="mavic_air_2_combo3.jpg" alt="Mavic Air 2 Combo">
                 <img src="mavic_air_2_combo4.jpg" alt="Mavic Air 2 Combo">
-                <img src="mavic_air_2_combo2.jpg" alt="Mavic Air 2 Combo">
             </div>
-            <button class="carousel-nav right" onclick="nextSlide(this)">&#10095;</button>
-            <div class="carousel-indicators">
-                <span onclick="currentSlide(this, 1)" class="active"></span>
-                <span onclick="currentSlide(this, 2)"></span>
-                <span onclick="currentSlide(this, 3)"></span>
-                <span onclick="currentSlide(this, 4)"></span>
+            <div class="carousel-buttons">
+                <span onclick="currentSlide(this, 1)">1</span>
+                <span onclick="currentSlide(this, 2)">2</span>
+                <span onclick="currentSlide(this, 3)">3</span>
+                <span onclick="currentSlide(this, 4)">4</span>
             </div>
-            <h2>Mavic Air 2 Combo (Dron 1)</h2>
+            <h2>Mavic Air 2 Combo</h2>
             <p><strong>Descripción:</strong></p>
             <ul>
                 <li><strong>Baterías:</strong> 3 baterías con su cargador</li>
@@ -207,51 +143,18 @@
             <button class="details-button" onclick="showPopup('mavic-air-2-combo-1-details')">Ver más detalles</button>
             <a class="contact-button" href="https://wa.me/524442200011?text=Estoy%20interesado%20en%20el%20Mavic%20Air%202%20Combo">Contactar via WhatsApp</a>
         </div>
-        <!-- Segundo Dron -->
+
+        <!-- Producto: Tennis ASICS METASPEED SKY -->
         <div class="product">
-            <button class="carousel-nav left" onclick="prevSlide(this)">&#10094;</button>
-            <div class="carousel">
-                <img src="mavic_air_2_combo2.jpg" alt="Mavic Air 2 Combo">
-                <img src="mavic_air_2_combo5.jpg" alt="Mavic Air 2 Combo">
-            </div>
-            <button class="carousel-nav right" onclick="nextSlide(this)">&#10095;</button>
-            <div class="carousel-indicators">
-                <span onclick="currentSlide(this, 1)" class="active"></span>
-                <span onclick="currentSlide(this, 2)"></span>
-            </div>
-            <h2>Mavic Air 2 Combo (Dron 2)</h2>
-            <p><strong>Descripción:</strong></p>
-            <ul>
-                <li><strong>Baterías:</strong> 3 baterías con su cargador</li>
-                <li><strong>Accesorios:</strong> Filtros para fotografías, mochila y control</li>
-                <li><strong>Cámara:</strong> 48MP para imágenes de alta calidad</li>
-                <li><strong>Video:</strong> 4K con detalles increíbles</li>
-                <li><strong>Distancia de Vuelo:</strong> Hasta 18.5 km</li>
-                <li><strong>Tiempo de Vuelo:</strong> Aproximadamente 34 minutos por batería</li>
-                <li><strong>Seguridad:</strong> Sensores para evitar obstáculos y accidentes</li>
-                <li><strong>Diseño:</strong> Plegable y ligero para mayor portabilidad y facilidad de transporte</li>
-                <li><strong>Modos de Vuelo:</strong> Inteligentes y creativos para capturar tomas únicas</li>
-            </ul>
-            <p><strong>Resumen:</strong> El Mavic Air 2 Combo es la herramienta perfecta para capturar imágenes y videos impresionantes desde el aire, con una increíble calidad de imagen y funciones avanzadas que facilitan su uso.</p>
-            <p><strong>Precio:</strong> $21,000.00 MXN</p>
-            <button class="details-button" onclick="showPopup('mavic-air-2-combo-2-details')">Ver más detalles</button>
-            <a class="contact-button" href="https://wa.me/524442200011?text=Estoy%20interesado%20en%20el%20Mavic%20Air%202%20Combo">Contactar via WhatsApp</a>
-        </div>
-        <!-- Tennis ASICS METASPEED SKY -->
-        <div class="product">
-            <button class="carousel-nav left" onclick="prevSlide(this)">&#10094;</button>
             <div class="carousel">
                 <img src="tenis_asics_metaspeed_sky.jpg" alt="Tennis ASICS METASPEED SKY">
                 <img src="tenis_asics_metaspeed_sky2.jpg" alt="Tennis ASICS METASPEED SKY">
                 <img src="tenis_asics_metaspeed_sky3.jpg" alt="Tennis ASICS METASPEED SKY">
-                <img src="tenis_asics_metaspeed_sky4.jpg" alt="Tennis ASICS METASPEED SKY">
             </div>
-            <button class="carousel-nav right" onclick="nextSlide(this)">&#10095;</button>
-            <div class="carousel-indicators">
-                <span onclick="currentSlide(this, 1)" class="active"></span>
-                <span onclick="currentSlide(this, 2)"></span>
-                <span onclick="currentSlide(this, 3)"></span>
-                <span onclick="currentSlide(this, 4)"></span>
+            <div class="carousel-buttons">
+                <span onclick="currentSlide(this, 1)">1</span>
+                <span onclick="currentSlide(this, 2)">2</span>
+                <span onclick="currentSlide(this, 3)">3</span>
             </div>
             <h2>Tennis ASICS METASPEED SKY</h2>
             <p><strong>Descripción:</strong></p>
@@ -268,19 +171,18 @@
             <button class="details-button" onclick="showPopup('tenis-asics-metaspeed-sky-details')">Ver más detalles</button>
             <a class="contact-button" href="https://wa.me/524442200011?text=Estoy%20interesado%20en%20los%20Tennis%20ASICS%20METASPEED%20SKY">Contactar via WhatsApp</a>
         </div>
-        <!-- Garmin Fenix 6X Sapphire -->
+
+        <!-- Producto: Garmin Fenix 6X Sapphire -->
         <div class="product">
-            <button class="carousel-nav left" onclick="prevSlide(this)">&#10094;</button>
             <div class="carousel">
                 <img src="garmin_fenix_6x_sapphire1.jpg" alt="Garmin Fenix 6X Sapphire">
                 <img src="garmin_fenix_6x_sapphire2.jpg" alt="Garmin Fenix 6X Sapphire">
                 <img src="garmin_fenix_6x_sapphire3.jpg" alt="Garmin Fenix 6X Sapphire">
             </div>
-            <button class="carousel-nav right" onclick="nextSlide(this)">&#10095;</button>
-            <div class="carousel-indicators">
-                <span onclick="currentSlide(this, 1)" class="active"></span>
-                <span onclick="currentSlide(this, 2)"></span>
-                <span onclick="currentSlide(this, 3)"></span>
+            <div class="carousel-buttons">
+                <span onclick="currentSlide(this, 1)">1</span>
+                <span onclick="currentSlide(this, 2)">2</span>
+                <span onclick="currentSlide(this, 3)">3</span>
             </div>
             <h2>Garmin Fenix 6X Sapphire</h2>
             <p><strong>Descripción:</strong></p>
@@ -297,21 +199,20 @@
             <button class="details-button" onclick="showPopup('garmin-fenix-6x-sapphire-details')">Ver más detalles</button>
             <a class="contact-button" href="https://wa.me/524442200011?text=Estoy%20interesado%20en%20el%20Garmin%20Fenix%206X%20Sapphire">Contactar via WhatsApp</a>
         </div>
-        <!-- iPhone 12 Pro Max de 512GB (Color Blanco) -->
+
+        <!-- Producto: iPhone 12 Pro Max de 512GB (Color Blanco) -->
         <div class="product">
-            <button class="carousel-nav left" onclick="prevSlide(this)">&#10094;</button>
             <div class="carousel">
                 <img src="Iphone12promax.jpg" alt="iPhone 12 Pro Max de 512GB (Color Blanco)">
                 <img src="Iphone12promax2.jpg" alt="iPhone 12 Pro Max de 512GB (Color Blanco)">
                 <img src="Iphone12promax3.jpg" alt="iPhone 12 Pro Max de 512GB (Color Blanco)">
                 <img src="Iphone12promax4.jpg" alt="iPhone 12 Pro Max de 512GB (Color Blanco)">
             </div>
-            <button class="carousel-nav right" onclick="nextSlide(this)">&#10095;</button>
-            <div class="carousel-indicators">
-                <span onclick="currentSlide(this, 1)" class="active"></span>
-                <span onclick="currentSlide(this, 2)"></span>
-                <span onclick="currentSlide(this, 3)"></span>
-                <span onclick="currentSlide(this, 4)"></span>
+            <div class="carousel-buttons">
+                <span onclick="currentSlide(this, 1)">1</span>
+                <span onclick="currentSlide(this, 2)">2</span>
+                <span onclick="currentSlide(this, 3)">3</span>
+                <span onclick="currentSlide(this, 4)">4</span>
             </div>
             <h2>iPhone 12 Pro Max de 512GB (Color Blanco)</h2>
             <p><strong>Descripción:</strong></p>
@@ -330,19 +231,18 @@
             <button class="details-button" onclick="showPopup('iphone-12-pro-max-details')">Ver más detalles</button>
             <a class="contact-button" href="https://wa.me/524442200011?text=Estoy%20interesado%20en%20el%20iPhone%2012%20Pro%20Max%20de%20512GB%20(Color%20Blanco)">Contactar via WhatsApp</a>
         </div>
-        <!-- MacBook Pro 15 inch, 2019 -->
+
+        <!-- Producto: MacBook Pro 15 inch, 2019 -->
         <div class="product">
-            <button class="carousel-nav left" onclick="prevSlide(this)">&#10094;</button>
             <div class="carousel">
-                <img src="MAC.jpg" alt="MacBook Pro 15 inch, 2019 1">
-                <img src="MAC2.jpg" alt="MacBook Pro 15 inch, 2019 2">
-                <img src="MAC3.jpg" alt="MacBook Pro 15 inch, 2019 2">
+                <img src="MAC.jpg" alt="MacBook Pro 15 inch, 2019">
+                <img src="MAC2.jpg" alt="MacBook Pro 15 inch, 2019">
+                <img src="MAC3.jpg" alt="MacBook Pro 15 inch, 2019">
             </div>
-            <button class="carousel-nav right" onclick="nextSlide(this)">&#10095;</button>
-            <div class="carousel-indicators">
-                <span onclick="currentSlide(this, 1)" class="active"></span>
-                <span onclick="currentSlide(this, 2)"></span>
-                <span onclick="currentSlide(this, 3)"></span>
+            <div class="carousel-buttons">
+                <span onclick="currentSlide(this, 1)">1</span>
+                <span onclick="currentSlide(this, 2)">2</span>
+                <span onclick="currentSlide(this, 3)">3</span>
             </div>
             <h2>MacBook Pro 15 inch, 2019</h2>
             <p><strong>Descripción:</strong></p>
@@ -361,27 +261,18 @@
             <button class="details-button" onclick="showPopup('macbook-pro-15-2019-details')">Ver más detalles</button>
             <a class="contact-button" href="https://wa.me/524442200011?text=Estoy%20interesado%20en%20el%20MacBook%20Pro%2015%20inch,%202019">Contactar via WhatsApp</a>
         </div>
-        <!-- DJI AVATA Combo -->
+
+        <!-- Producto: DJI AVATA Combo -->
         <div class="product">
-            <button class="carousel-nav left" onclick="prevSlide(this)">&#10094;</button>
             <div class="carousel">
-                <img src="DJIAVATA1.jpg" alt="DJI AVATA Combo 1">
-                <img src="DJIAVATA2.jpg" alt="DJI AVATA Combo 2">
-                <img src="DJIAVATA3.jpg" alt="DJI AVATA Combo 1">
-                <img src="DJIAVATA4.jpg" alt="DJI AVATA Combo 2">
-                <img src="DJIAVATA5.jpg" alt="DJI AVATA Combo 1">
-                <img src="DJIAVATA6.jpg" alt="DJI AVATA Combo 2">
-                <img src="DJIAVATA7.jpg" alt="DJI AVATA Combo 2">
+                <img src="DJIAVATA1.jpg" alt="DJI AVATA Combo">
+                <img src="DJIAVATA2.jpg" alt="DJI AVATA Combo">
+                <img src="DJIAVATA3.jpg" alt="DJI AVATA Combo">
             </div>
-            <button class="carousel-nav right" onclick="nextSlide(this)">&#10095;</button>
-            <div class="carousel-indicators">
-                <span onclick="currentSlide(this, 1)" class="active"></span>
-                <span onclick="currentSlide(this, 2)"></span>
-                <span onclick="currentSlide(this, 3)"></span>
-                <span onclick="currentSlide(this, 4)"></span>
-                <span onclick="currentSlide(this, 5)"></span>
-                <span onclick="currentSlide(this, 6)"></span>
-                <span onclick="currentSlide(this, 7)"></span>
+            <div class="carousel-buttons">
+                <span onclick="currentSlide(this, 1)">1</span>
+                <span onclick="currentSlide(this, 2)">2</span>
+                <span onclick="currentSlide(this, 3)">3</span>
             </div>
             <h2>DJI AVATA Combo</h2>
             <p><strong>Descripción:</strong></p>
@@ -398,19 +289,18 @@
             <button class="details-button" onclick="showPopup('dji-avata-combo-details')">Ver más detalles</button>
             <a class="contact-button" href="https://wa.me/524442200011?text=Estoy%20interesado%20en%20el%20DJI%20AVATA%20Combo">Contactar via WhatsApp</a>
         </div>
-        <!-- Pioneer DJ Digital DJ WeGO2-K -->
+
+        <!-- Producto: Pioneer DJ Digital DJ WeGO2-K -->
         <div class="product">
-            <button class="carousel-nav left" onclick="prevSlide(this)">&#10094;</button>
             <div class="carousel">
-                <img src="PDJ4.jpg" alt="Pioneer DJ Digital DJ WeGO2-K 1">
-                <img src="PDJ5.jpg" alt="Pioneer DJ Digital DJ WeGO2-K 2">
-                <img src="PDJ6.jpg" alt="Pioneer DJ Digital DJ WeGO2-K 3">
+                <img src="PDJ4.jpg" alt="Pioneer DJ Digital DJ WeGO2-K">
+                <img src="PDJ5.jpg" alt="Pioneer DJ Digital DJ WeGO2-K">
+                <img src="PDJ6.jpg" alt="Pioneer DJ Digital DJ WeGO2-K">
             </div>
-            <button class="carousel-nav right" onclick="nextSlide(this)">&#10095;</button>
-            <div class="carousel-indicators">
-                <span onclick="currentSlide(this, 1)" class="active"></span>
-                <span onclick="currentSlide(this, 2)"></span>
-                <span onclick="currentSlide(this, 3)"></span>
+            <div class="carousel-buttons">
+                <span onclick="currentSlide(this, 1)">1</span>
+                <span onclick="currentSlide(this, 2)">2</span>
+                <span onclick="currentSlide(this, 3)">3</span>
             </div>
             <h2>Pioneer DJ Digital DJ WeGO2-K</h2>
             <p><strong>Descripción:</strong></p>
@@ -423,26 +313,23 @@
             </ul>
             <p><strong>Resumen:</strong> Lleva tus habilidades de DJ al siguiente nivel con el Pioneer DJ WeGO2-K, un controlador compacto y versátil que te permitirá mezclar música en cualquier lugar.</p>
             <p><strong>Precio:</strong> $6,000.00 MXN</p>
-            <button class="details-button" onclick="showPopup('pioneer-dj-wego2k-details')">Ver más detalles</button>
+            <button class="details-button" onclick="showPopup('pioneer-dj-wego2-k-details')">Ver más detalles</button>
             <a class="contact-button" href="https://wa.me/524442200011?text=Estoy%20interesado%20en%20el%20Pioneer%20DJ%20Digital%20DJ%20WeGO2-K">Contactar via WhatsApp</a>
         </div>
-        <!-- Bocinas Wonderboom -->
+
+        <!-- Producto: Bocinas Wonderboom -->
         <div class="product">
-            <button class="carousel-nav left" onclick="prevSlide(this)">&#10094;</button>
             <div class="carousel">
-                <img src="WB2.jpg" alt="Bocina Wonderboom">
-                <img src="WB1.jpg" alt="Bocina Wonderboom">
-                <img src="WB3.jpg" alt="Bocina Wonderboom">
-                <img src="WB4.jpg" alt="Bocina Wonderboom">
+                <img src="WB2.jpg" alt="Bocinas Wonderboom">
+                <img src="WB1.jpg" alt="Bocinas Wonderboom">
+                <img src="WB3.jpg" alt="Bocinas Wonderboom">
             </div>
-            <button class="carousel-nav right" onclick="nextSlide(this)">&#10095;</button>
-            <div class="carousel-indicators">
-                <span onclick="currentSlide(this, 1)" class="active"></span>
-                <span onclick="currentSlide(this, 2)"></span>
-                <span onclick="currentSlide(this, 3)"></span>
-                <span onclick="currentSlide(this, 4)"></span>
+            <div class="carousel-buttons">
+                <span onclick="currentSlide(this, 1)">1</span>
+                <span onclick="currentSlide(this, 2)">2</span>
+                <span onclick="currentSlide(this, 3)">3</span>
             </div>
-            <h2> Bocinas Wonderboom</h2>
+            <h2>Bocinas Wonderboom</h2>
             <p><strong>Descripción:</strong></p>
             <ul>
                 <li><strong>Sonido:</strong> Potente de 360 grados con bajos profundos</li>
@@ -457,188 +344,48 @@
             <a class="contact-button" href="https://wa.me/524442200011?text=Estoy%20interesado%20en%20la%20Bocina%20Wonderboom">Contactar via WhatsApp</a>
         </div>
     </div>
-    <a class="fixed-contact-button" href="https://wa.me/524442200011">📱</a>
-    <div class="popup" id="popup">
-        <button class="popup-close" onclick="closePopup()">×</button>
-        <div id="popup-content"></div>
+
+    <a href="https://wa.me/524442200011?text=Hola%2C%20estoy%20interesado%20en%20uno%20de%20los%20productos%20en%20venta." class="fixed-contact-button">WhatsApp</a>
+
+    <div id="mavic-air-2-combo-1-details" class="popup">
+        <button class="popup-close" onclick="closePopup('mavic-air-2-combo-1-details')">&times;</button>
+        <h2>Mavic Air 2 Combo</h2>
+        <p><strong>Descripción:</strong></p>
+        <ul>
+            <li><strong>Baterías:</strong> 3 baterías con su cargador</li>
+            <li><strong>Accesorios:</strong> Filtros para fotografías, mochila y control</li>
+            <li><strong>Cámara:</strong> 48MP para imágenes de alta calidad</li>
+            <li><strong>Video:</strong> 4K con detalles increíbles</li>
+            <li><strong>Distancia de Vuelo:</strong> Hasta 18.5 km</li>
+            <li><strong>Tiempo de Vuelo:</strong> Aproximadamente 34 minutos por batería</li>
+            <li><strong>Seguridad:</strong> Sensores para evitar obstáculos y accidentes</li>
+            <li><strong>Diseño:</strong> Plegable y ligero para mayor portabilidad y facilidad de transporte</li>
+            <li><strong>Modos de Vuelo:</strong> Inteligentes y creativos para capturar tomas únicas</li>
+        </ul>
+        <p><strong>Resumen:</strong> El Mavic Air 2 Combo es la herramienta perfecta para capturar imágenes y videos impresionantes desde el aire, con una increíble calidad de imagen y funciones avanzadas que facilitan su uso.</p>
+        <p><strong>Precio:</strong> $21,000.00 MXN</p>
+        <a class="contact-button" href="https://wa.me/524442200011?text=Estoy%20interesado%20en%20el%20Mavic%20Air%202%20Combo">Contactar via WhatsApp</a>
     </div>
+
+    <!-- Similar popups for other products -->
+
     <script>
-        function prevSlide(button) {
-            const carousel = button.nextElementSibling;
-            carousel.scrollBy({left: -carousel.clientWidth, behavior: 'smooth'});
-            updateIndicators(carousel, -1);
+        function showPopup(id) {
+            document.getElementById(id).style.display = 'block';
         }
 
-        function nextSlide(button) {
-            const carousel = button.previousElementSibling;
-            carousel.scrollBy({left: carousel.clientWidth, behavior: 'smooth'});
-            updateIndicators(carousel, 1);
+        function closePopup(id) {
+            document.getElementById(id).style.display = 'none';
         }
 
-        function currentSlide(indicator, index) {
-            const carousel = indicator.parentElement.previousElementSibling.previousElementSibling;
-            const offset = (index - 1) * carousel.clientWidth;
-            carousel.scrollTo({left: offset, behavior: 'smooth'});
-            updateIndicators(carousel, index - 1, true);
-        }
-
-        function updateIndicators(carousel, step, isAbsolute = false) {
-            const indicators = carousel.nextElementSibling.children;
-            let activeIndex = Array.from(indicators).findIndex(indicator => indicator.classList.contains('active'));
-            if (isAbsolute) {
-                activeIndex = step;
-            } else {
-                activeIndex = (activeIndex + step + indicators.length) % indicators.length;
-            }
-            Array.from(indicators).forEach(indicator => indicator.classList.remove('active'));
-            indicators[activeIndex].classList.add('active');
-        }
-
-        function showPopup(detailsId) {
-            const details = {
-                'mavic-air-2-combo-1-details': `
-                    <h2>Mavic Air 2 Combo (Dron 1)</h2>
-                    <p><strong>Descripción:</strong></p>
-                    <ul>
-                        <li><strong>Baterías:</strong> 3 baterías con su cargador</li>
-                        <li><strong>Accesorios:</strong> Filtros para fotografías, mochila y control</li>
-                        <li><strong>Cámara:</strong> 48MP para imágenes de alta calidad</li>
-                        <li><strong>Video:</strong> 4K con detalles increíbles</li>
-                        <li><strong>Distancia de Vuelo:</strong> Hasta 18.5 km</li>
-                        <li><strong>Tiempo de Vuelo:</strong> Aproximadamente 34 minutos por batería</li>
-                        <li><strong>Seguridad:</strong> Sensores para evitar obstáculos y accidentes</li>
-                        <li><strong>Diseño:</strong> Plegable y ligero para mayor portabilidad y facilidad de transporte</li>
-                        <li><strong>Modos de Vuelo:</strong> Inteligentes y creativos para capturar tomas únicas</li>
-                    </ul>
-                    <p><strong>Resumen:</strong> El Mavic Air 2 Combo es la herramienta perfecta para capturar imágenes y videos impresionantes desde el aire, con una increíble calidad de imagen y funciones avanzadas que facilitan su uso.</p>
-                    <p><strong>Precio:</strong> $21,000.00 MXN</p>
-                `,
-                'mavic-air-2-combo-2-details': `
-                    <h2>Mavic Air 2 Combo (Dron 2)</h2>
-                    <p><strong>Descripción:</strong></p>
-                    <ul>
-                        <li><strong>Baterías:</strong> 3 baterías con su cargador</li>
-                        <li><strong>Accesorios:</strong> Filtros para fotografías, mochila y control</li>
-                        <li><strong>Cámara:</strong> 48MP para imágenes de alta calidad</li>
-                        <li><strong>Video:</strong> 4K con detalles increíbles</li>
-                        <li><strong>Distancia de Vuelo:</strong> Hasta 18.5 km</li>
-                        <li><strong>Tiempo de Vuelo:</strong> Aproximadamente 34 minutos por batería</li>
-                        <li><strong>Seguridad:</strong> Sensores para evitar obstáculos y accidentes</li>
-                        <li><strong>Diseño:</strong> Plegable y ligero para mayor portabilidad y facilidad de transporte</li>
-                        <li><strong>Modos de Vuelo:</strong> Inteligentes y creativos para capturar tomas únicas</li>
-                    </ul>
-                    <p><strong>Resumen:</strong> El Mavic Air 2 Combo es la herramienta perfecta para capturar imágenes y videos impresionantes desde el aire, con una increíble calidad de imagen y funciones avanzadas que facilitan su uso.</p>
-                    <p><strong>Precio:</strong> $21,000.00 MXN</p>
-                `,
-                'tenis-asics-metaspeed-sky-details': `
-                    <h2>Tennis ASICS METASPEED SKY</h2>
-                    <p><strong>Descripción:</strong></p>
-                    <ul>
-                        <li><strong>Uso:</strong> Competencia</li>
-                        <li><strong>Peso:</strong> 200g (ultraligeros)</li>
-                        <li><strong>Ritmo:</strong> Alto</li>
-                        <li><strong>Tecnología:</strong> Placa de fibra de carbono (carbon-plate) para mayor impulso</li>
-                        <li><strong>Distancia:</strong> Ideales para 10K, media maratón y maratón</li>
-                        <li><strong>Comparación:</strong> Equivalen a los Alphafly de Nike</li>
-                    </ul>
-                    <p><strong>Resumen:</strong> Los Tennis ASICS METASPEED SKY son perfectos para corredores de alto rendimiento, ofreciendo ligereza, velocidad y una tecnología avanzada que maximiza tu desempeño en cada carrera.</p>
-                    <p><strong>Precio:</strong> $5,599.00 MXN</p>
-                `,
-                'garmin-fenix-6x-sapphire-details': `
-                    <h2>Garmin Fenix 6X Sapphire</h2>
-                    <p><strong>Descripción:</strong></p>
-                    <ul>
-                        <li><strong>Pantalla:</strong> Resistente a los arañazos con cristal de zafiro</li>
-                        <li><strong>Mapas:</strong> TopoActive y rutas de esquí integradas</li>
-                        <li><strong>Sensores:</strong> Avanzados de frecuencia cardíaca y Pulse Ox</li>
-                        <li><strong>Navegación:</strong> GPS, GLONASS y Galileo</li>
-                        <li><strong>Monitoreo:</strong> Energía Body Battery para gestionar tus reservas de energía</li>
-                        <li><strong>Batería:</strong> Hasta 21 días en modo smartwatch</li>
-                    </ul>
-                    <p><strong>Resumen:</strong> El Garmin Fenix 6X Sapphire es tu compañero definitivo para cualquier aventura, ofreciendo durabilidad, precisión y monitoreo avanzado para mantenerte siempre al máximo.</p>
-                    <p><strong>Precio:</strong> $12,490.00 MXN</p>
-                `,
-                'iphone-12-pro-max-details': `
-                    <h2>iPhone 12 Pro Max de 512GB (Color Blanco)</h2>
-                    <p><strong>Descripción:</strong></p>
-                    <ul>
-                        <li><strong>Capacidad:</strong> 512GB de almacenamiento</li>
-                        <li><strong>Color:</strong> Blanco</li>
-                        <li><strong>Condiciones:</strong> Excelentes, sin raspones ni daños</li>
-                        <li><strong>Pantalla:</strong> Super Retina XDR de 6.7 pulgadas</li>
-                        <li><strong>Cámara:</strong> Sistema de cámara triple con 12MP (ultra gran angular, gran angular y teleobjetivo)</li>
-                        <li><strong>Procesador:</strong> A14 Bionic para un rendimiento superior</li>
-                        <li><strong>Resistencia:</strong> IP68 (resistente al agua y al polvo)</li>
-                        <li><strong>Funciones Adicionales:</strong> Compatible con MagSafe, Face ID, grabación de video en 4K</li>
-                    </ul>
-                    <p><strong>Resumen:</strong> El iPhone 12 Pro Max de 512GB en color blanco ofrece un rendimiento y una capacidad excepcionales, con una pantalla impresionante y un sistema de cámara avanzado. Perfecto para quienes buscan lo mejor en tecnología y diseño sin comprometer la calidad.</p>
-                    <p><strong>Precio:</strong> $16,500.00 MXN</p>
-                `,
-                'macbook-pro-15-2019-details': `
-                    <h2>MacBook Pro 15 inch, 2019</h2>
-                    <p><strong>Descripción:</strong></p>
-                    <ul>
-                        <li><strong>Procesador:</strong> Intel Core i9 de ocho núcleos a 2.4 GHz</li>
-                        <li><strong>Gráficos:</strong> Radeon Pro Vega 20 4 GB e Intel UHD Graphics 630 1536 MB</li>
-                        <li><strong>Memoria:</strong> 32 GB de RAM DDR4 a 2400 MHz</li>
-                        <li><strong>Almacenamiento:</strong> SSD de 1 TB</li>
-                        <li><strong>Pantalla:</strong> Retina de 15 pulgadas con tecnología True Tone</li>
-                        <li><strong>Funciones Adicionales:</strong> Touch Bar y Touch ID</li>
-                        <li><strong>Puertos:</strong> Cuatro Thunderbolt 3 (USB-C)</li>
-                        <li><strong>Sistema Operativo:</strong> macOS</li>
-                    </ul>
-                    <p><strong>Resumen:</strong> Potencia y versatilidad en tus manos. El MacBook Pro 2019 es perfecto para profesionales que necesitan un rendimiento excepcional y una experiencia de usuario premium.</p>
-                    <p><strong>Precio:</strong> $45,000.00 MXN</p>
-                `,
-                'dji-avata-combo-details': `
-                    <h2>DJI AVATA Combo</h2>
-                    <p><strong>Descripción:</strong></p>
-                    <ul>
-                        <li><strong>Cámara:</strong> 4K con estabilización RockSteady</li>
-                        <li><strong>Tiempo de Vuelo:</strong> Aproximadamente 20 minutos</li>
-                        <li><strong>Diseño:</strong> Compacto y resistente</li>
-                        <li><strong>Modos de Vuelo:</strong> Manual y estabilizado</li>
-                        <li><strong>Transmisión:</strong> OcuSync 3.0</li>
-                        <li><strong>Incluye:</strong> Controlador de movimiento y gafas FPV</li>
-                    </ul>
-                    <p><strong>Resumen:</strong> Explora el cielo con el DJI AVATA Combo, ideal para capturar videos increíbles y vivir una experiencia de vuelo inmersiva, tanto para principiantes como expertos.</p>
-                    <p><strong>Precio:</strong> $21,900.00 MXN</p>
-                `,
-                'pioneer-dj-wego2k-details': `
-                    <h2>Pioneer DJ Digital DJ WeGO2-K</h2>
-                    <p><strong>Descripción:</strong></p>
-                    <ul>
-                        <li><strong>Compatibilidad:</strong> iPhone, iPad, PC/Mac</li>
-                        <li><strong>Jog Wheels:</strong> Iluminadas con múltiples efectos</li>
-                        <li><strong>Interfaz de Audio:</strong> Integrada con salida para auriculares</li>
-                        <li><strong>Alimentación:</strong> USB, sin necesidad de adaptador de corriente</li>
-                        <li><strong>Software Incluido:</strong> Virtual DJ LE</li>
-                    </ul>
-                    <p><strong>Resumen:</strong> Lleva tus habilidades de DJ al siguiente nivel con el Pioneer DJ WeGO2-K, un controlador compacto y versátil que te permitirá mezclar música en cualquier lugar.</p>
-                    <p><strong>Precio:</strong> $6,000.00 MXN</p>
-                `,
-                'bocinas-wonderboom-details': `
-                    <h2>Bocinas Wonderboom</h2>
-                    <p><strong>Descripción:</strong></p>
-                    <ul>
-                        <li><strong>Sonido:</strong> Potente de 360 grados con bajos profundos</li>
-                        <li><strong>Resistencia:</strong> Al agua (IPX7) y flotante</li>
-                        <li><strong>Batería:</strong> Hasta 10 horas de duración</li>
-                        <li><strong>Emparejamiento:</strong> Con otros altavoces Wonderboom para sonido estéreo</li>
-                        <li><strong>Alcance:</strong> Inalámbrico de hasta 30 metros</li>
-                    </ul>
-                    <p><strong>Resumen:</strong> La bocina Wonderboom ofrece un sonido increíblemente potente y resistente al agua, perfecta para cualquier aventura al aire libre o reunión en casa.</p>
-                    <p><strong>Precio:</strong> $1,500.00 MXN</p>
-                `
-            };
-
-            document.getElementById('popup-content').innerHTML = details[detailsId];
-            document.getElementById('popup').style.display = 'block';
-        }
-
-        function closePopup() {
-            document.getElementById('popup').style.display = 'none';
+        function currentSlide(element, slideIndex) {
+            const carousel = element.closest('.product').querySelector('.carousel');
+            carousel.scrollTo({
+                left: carousel.clientWidth * (slideIndex - 1),
+                behavior: 'smooth'
+            });
         }
     </script>
 </body>
 </html>
+
